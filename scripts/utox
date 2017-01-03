@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-if [[ -n "$(docker ps -qaf 'name=firefox')" ]]; then
-	docker restart firefox
+if [[ -n "$(docker ps -qaf 'name=utox-git')" ]]; then
+	docker restart utox-git
 else
 	USER_UID=$(id -u)
 	USER_GID=$(id -g)
@@ -14,6 +14,6 @@ else
 		--env=DISPLAY=unix$DISPLAY \
 		--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro \
 		--volume=/run/user/$USER_UID/pulse:/run/pulse:ro \
-		--name firefox \
-		firefox
+		--name utox-git \
+		utox-git
 fi
