@@ -38,8 +38,10 @@ RUN git clone git://github.com/TokTok/c-toxcore.git \
     && ldconfig \
     && cd ..
 
-# Install uTox
+# Install uTox with the new bootstrap nodes that run only on port 443
+COPY files/tox_bootstrap.h /tmp/
 RUN git clone git://github.com/uTox/uTox.git \
+    && cp /tmp/tox_bootstrap.h uTox/src/ \
     && cd uTox/ \
     && mkdir build \
     && cd build \
